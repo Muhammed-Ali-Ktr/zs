@@ -85,12 +85,12 @@
         .nav-links a:hover::after {
             width: 100%;
         }
-
+        /* Mobil Menu Buton (3 çizgi) */
         .mobile-menu {
             display: none;
             background: none;
             border: none;
-            color: var(--light-gray);
+            color: #ffffff;
             font-size: 1.5rem;
             cursor: pointer;
         }
@@ -537,6 +537,7 @@
 .footer-socials {
   display: flex;
   gap: 1rem;
+  justify-content: space-evenly;
 }
 
 .social-link {
