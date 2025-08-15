@@ -18,7 +18,7 @@
 
 /* Karanlık tema değişkenleri */
 [data-theme="dark"] {
-    --primary-bg: #0a0a0a;
+    --primary-bg: #0a0a1a;
     --secondary-bg: #1a1a1a;
     --accent-color: #0077cc;
     --text-primary: #e0e0e0;
@@ -480,6 +480,7 @@ body.menu-open {
     background: var(--secondary-bg);
     color: var(--text-primary);
     padding: 3rem 1.5rem 1.5rem;
+    text-align: center;
     border-top: 1px solid var(--border-color);
     margin-top: 5rem;
 }
