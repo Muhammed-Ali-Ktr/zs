@@ -17,7 +17,7 @@
 
         /* Dark theme variables */
         [data-theme="dark"] {
-            --primary-black: #0a0a0a;
+            --primary-black: #0a0a1a;
             --secondary-black: #1a1a1a;
             --accent-red: #0077cc;
             --light-gray: #e0e0e0;
@@ -154,7 +154,7 @@
 
         /* Hero Section */
         .hero {
-            height: 100vh;
+            height: 80vh;
             background: var(--gradient-bg);
             display: flex;
             align-items: center;
@@ -479,7 +479,7 @@
         }
 
         .footer-socials .social-link {
-            color: #000000;
+            color: #777777;
             font-size: 1.3rem;
             transition: color 0.3s ease;
             text-decoration: none;
@@ -692,7 +692,7 @@
 }
 
 [data-theme="dark"] {
-    --primary-black: #0a0a0a;
+    --primary-black: #0a0a1a;
     --secondary-black: #1a1a1a;
     --accent-blue: #0077cc;
     --light-gray: #e0e0e0;
