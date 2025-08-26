@@ -41,3 +41,45 @@ document.querySelectorAll(".cta-buttons a").forEach(btn => {
     btn.style.transform = "scale(1)";
   });
 });
+
+
+// Toggle Section Function
+function toggleSection(sectionId) {
+  const hiddenItems = document.getElementById(sectionId + "-hidden");
+  const button = document.querySelector(
+    "button[onclick=\"toggleSection('" + sectionId + "')\"]"
+  );
+
+  if (hiddenItems.style.display === "block") {
+    hiddenItems.style.display = "none";
+    button.innerHTML = '<i class="fas fa-chevron-down"></i> Daha Fazlasını Gör';
+  } else {
+    hiddenItems.style.display = "block";
+    button.innerHTML = '<i class="fas fa-chevron-up"></i> Daha Az Göster';
+
+    // Fade-in animasyonu
+    hiddenItems.querySelectorAll(".news-item").forEach((item, i) => {
+      item.style.opacity = "0";
+      item.style.transform = "translateY(20px)";
+      setTimeout(() => {
+        item.style.transition = "all 0.5s ease";
+        item.style.opacity = "1";
+        item.style.transform = "translateY(0)";
+      }, i * 100); // sırayla açılma
+    });
+  }
+}
+
+// Newsletter Subscribe Function
+function subscribeNewsletter(event) {
+  event.preventDefault();
+  const input = document.querySelector(".newsletter-input");
+  const email = input.value.trim();
+
+  if (email) {
+    alert("🎉 Teşekkürler! " + email + " adresiyle abone oldunuz.");
+    input.value = "";
+  } else {
+    alert("⚠️ Lütfen geçerli bir e-posta adresi giriniz.");
+  }
+}
