@@ -1,0 +1,170 @@
+/* Genel Ayarlar */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #0b0f1a; /* Koyu siyaha yakın mavi-siyah */
+    color: #fff;
+    margin: 0;
+    padding: 0;
+}
+
+/* Konteyner */
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: auto;
+    padding: 40px 0;
+}
+
+/* Başlıklar */
+.section-title {
+    font-size: 1.8rem;
+    font-weight: 600;
+    margin-bottom: 25px;
+    color: #ffffff;
+    border-left: 5px solid #1e90ff;
+    padding-left: 12px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* Haber Kartları Grid */
+.news-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+}
+
+/* Haber Kartları */
+.news-item {
+    background: #111827; /* Koyu lacivert-siyah ton */
+    border-radius: 16px;
+    padding: 20px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+}
+
+.news-item:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 8px 20px rgba(30, 144, 255, 0.4);
+}
+
+/* Kart Başlık */
+.news-item h3 {
+    font-size: 1.3rem;
+    color: #1e90ff; /* Mavi vurgu */
+    margin-bottom: 10px;
+}
+
+/* Kart İçerik */
+.news-item p {
+    font-size: 0.95rem;
+    color: #d1d5db; /* Açık gri */
+    line-height: 1.6;
+}
+
+/* Meta Bilgileri */
+.news-meta {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 15px;
+    font-size: 0.85rem;
+    color: #9ca3af;
+}
+
+.news-meta i {
+    margin-right: 6px;
+    color: #1e90ff;
+}
+
+/* Butonlar */
+.show-more-btn {
+    margin-top: 30px;
+    background: #1e90ff;
+    color: #fff;
+    border: none;
+    padding: 12px 22px;
+    font-size: 0.95rem;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.show-more-btn:hover {
+    background: #0d6efd;
+    transform: scale(1.05);
+}
+
+/* Newsletter */
+.newsletter-section {
+    background: #111827;
+    text-align: center;
+    padding: 40px 20px;
+    border-radius: 16px;
+    margin: 50px auto;
+    max-width: 800px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.6);
+}
+
+.newsletter-section h2 {
+    color: #1e90ff;
+    margin-bottom: 10px;
+}
+
+.newsletter-section p {
+    color: #d1d5db;
+    margin-bottom: 20px;
+}
+
+.newsletter-form {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+}
+
+.newsletter-input {
+    padding: 12px 16px;
+    border-radius: 8px;
+    border: 1px solid #1e293b;
+    outline: none;
+    flex: 1;
+    min-width: 220px;
+    max-width: 400px;
+    background: #0f172a;
+    color: #fff;
+}
+
+.newsletter-btn {
+    background: #1e90ff;
+    color: #fff;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.newsletter-btn:hover {
+    background: #0d6efd;
+}
+
+/* Mobil Uyum */
+@media (max-width: 768px) {
+    .section-title {
+        font-size: 1.5rem;
+    }
+    .news-item h3 {
+        font-size: 1.15rem;
+    }
+    .news-meta {
+        flex-direction: column;
+        gap: 6px;
+    }
+    .newsletter-form {
+        flex-direction: column;
+    }
+}
