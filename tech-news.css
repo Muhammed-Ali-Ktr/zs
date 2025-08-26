@@ -7,6 +7,129 @@ body {
     padding: 0;
 }
 
+/* Hero Section */
+.hero {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background: linear-gradient(135deg, #0b0f1a 0%, #111827 50%, #0f172a 100%);
+    color: #fff;
+    padding: 0 20px;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Hero Content */
+.hero-content {
+    max-width: 900px;
+    z-index: 2;
+}
+
+.hero h1 {
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 15px;
+    color: #1e90ff; /* Mavi vurgu */
+    text-shadow: 0 4px 20px rgba(0, 0, 0, 0.6);
+}
+
+.hero .subtitle {
+    font-size: 1.3rem;
+    color: #d1d5db;
+    margin-bottom: 35px;
+    line-height: 1.6;
+}
+
+/* CTA Buttons */
+.cta-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+}
+
+.btn {
+    padding: 12px 20px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-size: 0.95rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    display: inline-block;
+}
+
+/* Button Styles */
+.btn-primary {
+    background: #1e90ff;
+    color: #fff;
+}
+.btn-primary:hover {
+    background: #0d6efd;
+    transform: translateY(-3px);
+}
+
+.btn-secondary {
+    background: transparent;
+    border: 2px solid #1e90ff;
+    color: #1e90ff;
+}
+.btn-secondary:hover {
+    background: #1e90ff;
+    color: #fff;
+    transform: translateY(-3px);
+}
+
+.btn-tertiary {
+    background: #0f172a;
+    border: 2px solid #0d6efd;
+    color: #fff;
+}
+.btn-tertiary:hover {
+    background: #0d6efd;
+    transform: translateY(-3px);
+}
+
+.btn-quaternary {
+    background: #111827;
+    border: 2px solid #1e90ff;
+    color: #1e90ff;
+}
+.btn-quaternary:hover {
+    background: #1e90ff;
+    color: #fff;
+    transform: translateY(-3px);
+}
+
+.btn-quinary {
+    background: #1e293b;
+    color: #fff;
+    border: 2px solid #1e90ff;
+}
+.btn-quinary:hover {
+    background: #1e90ff;
+    color: #fff;
+    transform: translateY(-3px);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .hero h1 {
+        font-size: 2.2rem;
+    }
+    .hero .subtitle {
+        font-size: 1.1rem;
+    }
+    .cta-buttons {
+        flex-direction: column;
+    }
+    .btn {
+        width: 100%;
+        text-align: center;
+    }
+}
+
 /* Konteyner */
 .container {
     width: 90%;
