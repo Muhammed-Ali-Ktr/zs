@@ -234,7 +234,48 @@ href="article.html"></a>Makaleler</li>
     </nav>
 
 
-   <script src="index.js"></script>
+   <script">
+
+   // index.js
+
+// --- Mobil Menü Aç/Kapa ---
+const mobileMenuBtn = document.querySelector('.mobile-menu');
+const navLinks = document.querySelector('.nav-links');
+const mobileOverlay = document.querySelector('.mobile-menu-overlay');
+
+mobileMenuBtn.addEventListener('click', () => {
+    navLinks.classList.toggle('active');
+    mobileOverlay.classList.toggle('active');
+});
+
+// Mobil menü kapatma overlay tıklayınca
+mobileOverlay.addEventListener('click', () => {
+    navLinks.classList.remove('active');
+    mobileOverlay.classList.remove('active');
+});
+
+// --- Tema Değiştirici ---
+const themeToggleBtn = document.querySelector('.theme-toggle');
+const body = document.body;
+
+// LocalStorage'dan temayı kontrol et
+if(localStorage.getItem('theme') === 'dark') {
+    body.classList.add('dark-theme');
+} else {
+    body.classList.add('light-theme');
+}
+
+themeToggleBtn.addEventListener('click', () => {
+    if(body.classList.contains('dark-theme')) {
+        body.classList.replace('dark-theme', 'light-theme');
+        localStorage.setItem('theme', 'light');
+    } else {
+        body.classList.replace('light-theme', 'dark-theme');
+        localStorage.setItem('theme', 'dark');
+    }
+});
+
+</script>
 </body>
 
 </html>
