@@ -47,7 +47,84 @@
     </section>
 
 
-    
+
+
+
+
+
+    <!-- Design Gallery -->
+<section class="design-gallery">
+    <div class="container">
+        <h2 class="section-title">Çalışmalarımız</h2>
+        <p class="section-subtitle">3D Nesneler, Logolar ve Katalog Tasarımlarımız</p>
+
+        <!-- Araçlar -->
+        <div class="tools">
+            <!-- Arama -->
+            <input type="text" id="searchBox" placeholder="Ürün Ara...">
+
+            <!-- Sıralama -->
+            <select id="sortSelect">
+                <option value="az">A-Z Sırala</option>
+                <option value="za">Z-A Sırala</option>
+            </select>
+        </div>
+
+        <!-- Filtre Butonları -->
+        <div class="filter-controls">
+            <button class="filter-btn active" data-filter="all">Tümü</button>
+            <button class="filter-btn" data-filter="logo">Logolar</button>
+            <button class="filter-btn" data-filter="object">3D Nesneler</button>
+            <button class="filter-btn" data-filter="catalog">Kataloglar</button>
+        </div>
+
+        <!-- Galeri Grid -->
+        <div class="gallery-grid">
+
+            <!-- Logo Örnekleri -->
+            <div class="gallery-item logo">
+                <img src="image/logo1.jpg" alt="Modern Logo Tasarımı" class="preview-img">
+                <h3>Modern Logo</h3>
+                <ul>
+                    <li>Minimalist çizgiler</li>
+                    <li>Kurumsal kimlik için ideal</li>
+                    <li>Yüksek çözünürlük</li>
+                </ul>
+                <a href="mailto:muhammedalikitir.tr@gmail.com?subject=Modern Logo Satın Alma&body=Merhaba, Modern Logo tasarımını satın almak istiyorum." class="buy-btn">Satın Al</a>
+            </div>
+
+            <div class="gallery-item logo">
+                <img src="image/logo2.jpg" alt="Yaratıcı Logo" class="preview-img">
+                <h3>Yaratıcı Logo</h3>
+                <ul>
+                    <li>Dikkat çekici renkler</li>
+                    <li>Güçlü tipografi</li>
+                    <li>Marka kimliği için uygun</li>
+                </ul>
+                <a href="mailto:muhammedalikitir.tr@gmail.com?subject=Yaratıcı Logo Satın Alma&body=Merhaba, Yaratıcı Logo tasarımını satın almak istiyorum." class="buy-btn">Satın Al</a>
+            </div>
+
+            <!-- ... diğer ürünler aynı kalıyor ... -->
+
+        </div>
+    </div>
+</section>
+
+<!-- Görsel Önizleme Modal -->
+<div id="lightbox" class="lightbox">
+    <span class="close">&times;</span>
+    <img class="lightbox-content" id="lightbox-img">
+</div>
+
+
+
+
+
+
+
+
+
+
 
 
 
