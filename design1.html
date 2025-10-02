@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Zift Studio, yaratıcı süreçler ve tasarım hizmetleri sunan bir stüdyodur.">
+    <meta name="keywords" content="tasarım, 3D modelleme, animasyon, grafik tasarım, yaratıcı süreçler">
+    <title>Zift Studio - Tasarımlar</title>
+    <link rel="stylesheet" href="create.css">
+    <link rel="stylesheet" href="design.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">Zift Studio</div>
+            <ul class="nav-links">
+                <li><a href="index.html#home">Ana Sayfa</a></li>
+                <li><a href="developer.html">Developer</a></li>
+                <li><a href="create.html">Create</a></li>
+                <li><a href="design.html" class="active">Tasarımlar</a></li>
+                <li><a href="shop.html">Shop</a></li>
+                <li><a href="index.html#contact">İletişim</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Tasarımlar</h1>
+            <p class="subtitle">Etkileyici Tasarım Süreçlerimiz</p>
+        </div>
+    </section>
+
+    <!-- Design Gallery -->
+    <section class="design-gallery">
+        <div class="container">
+            <h2 class="section-title">Çalışmalarımız</h2>
+            <p class="section-subtitle">3D Nesneler, Logolar ve Katalog Tasarımlarımız</p>
+
+            <!-- Araçlar -->
+            <div class="tools">
+                <input type="text" id="searchBox" placeholder="Ürün Ara...">
+                <select id="sortSelect">
+                    <option value="az">A-Z Sırala</option>
+                    <option value="za">Z-A Sırala</option>
+                </select>
+            </div>
+
+            <!-- Filtre -->
+            <div class="filter-controls">
+                <button class="filter-btn active" data-filter="all">Tümü</button>
+                <button class="filter-btn" data-filter="logo">Logolar</button>
+                <button class="filter-btn" data-filter="object">3D Nesneler</button>
+                <button class="filter-btn" data-filter="catalog">Kataloglar</button>
+            </div>
+
+            <!-- Galeri Grid -->
+            <div class="gallery-grid">
+
+                <!-- Logo Örneği -->
+                <div class="gallery-item logo">
+                    <img src="image/logo1.jpg" alt="Modern Logo Tasarımı" class="preview-img">
+                    <h3>Modern Logo</h3>
+                    <button class="toggle-details">Detayları Gör</button>
+                    <div class="product-details">
+                        <ul>
+                            <li><b>Fiyat:</b> 500 TL</li>
+                            <li><b>Teslim Süresi:</b> 3 Gün</li>
+                            <li><b>Özellikler:</b> Minimalist çizgiler, kurumsal kimlik için ideal, yüksek çözünürlük.</li>
+                        </ul>
+                        <div class="contact-options">
+                            <a href="mailto:muhammedalikitir.tr@gmail.com?subject=Modern Logo Siparişi&body=Merhaba, Modern Logo tasarımını satın almak istiyorum." class="buy-btn">E-posta ile Sipariş</a>
+                            <a href="https://wa.me/905424786254?text=Merhaba,%20Modern%20Logo%20siparişi%20vermek%20istiyorum." class="buy-btn">WhatsApp ile Sipariş</a>
+                            <a href="https://www.instagram.com/zift.studio" class="buy-btn">Instagram ile İletişim</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Logo Örneği 2 -->
+                <div class="gallery-item logo">
+                    <img src="image/logo2.jpg" alt="Yaratıcı Logo" class="preview-img">
+                    <h3>Yaratıcı Logo</h3>
+                    <button class="toggle-details">Detayları Gör</button>
+                    <div class="product-details">
+                        <ul>
+                            <li><b>Fiyat:</b> 650 TL</li>
+                            <li><b>Teslim Süresi:</b> 4 Gün</li>
+                            <li><b>Özellikler:</b> Dikkat çekici renkler, güçlü tipografi, marka kimliği için uygun.</li>
+                        </ul>
+                        <div class="contact-options">
+                            <a href="mailto:muhammedalikitir.tr@gmail.com?subject=Yaratıcı Logo Siparişi&body=Merhaba, Yaratıcı Logo tasarımını satın almak istiyorum." class="buy-btn">E-posta ile Sipariş</a>
+                            <a href="https://wa.me/905424786254?text=Merhaba,%20Yaratıcı%20Logo%20siparişi%20vermek%20istiyorum." class="buy-btn">WhatsApp ile Sipariş</a>
+                            <a href="https://www.instagram.com/zift.studio" class="buy-btn">Instagram ile İletişim</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 3D Nesne -->
+                <div class="gallery-item object">
+                    <img src="image/object1.jpg" alt="3D Araba Modeli">
+                    <h3>3D Araba Modeli</h3>
+                    <button class="toggle-details">Detayları Gör</button>
+                    <div class="product-details">
+                        <ul>
+                            <li><b>Fiyat:</b> 1500 TL</li>
+                            <li><b>Teslim Süresi:</b> 7 Gün</li>
+                            <li><b>Özellikler:</b> Gerçekçi detaylar, render için hazır, 3 farklı formatta indirilebilir.</li>
+                        </ul>
+                        <div class="contact-options">
+                            <a href="mailto:muhammedalikitir.tr@gmail.com?subject=3D Araba Modeli Siparişi&body=Merhaba, 3D Araba Modeli siparişi vermek istiyorum." class="buy-btn">E-posta ile Sipariş</a>
+                            <a href="https://wa.me/905424786254?text=Merhaba,%203D%20Araba%20Modeli%20siparişi%20vermek%20istiyorum." class="buy-btn">WhatsApp ile Sipariş</a>
+                            <a href="https://www.instagram.com/zift.studio" class="buy-btn">Instagram ile İletişim</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Katalog -->
+                <div class="gallery-item catalog">
+                    <img src="image/catalog1.jpg" alt="Ürün Kataloğu">
+                    <h3>Ürün Kataloğu</h3>
+                    <button class="toggle-details">Detayları Gör</button>
+                    <div class="product-details">
+                        <ul>
+                            <li><b>Fiyat:</b> 800 TL</li>
+                            <li><b>Teslim Süresi:</b> 5 Gün</li>
+                            <li><b>Özellikler:</b> Profesyonel tasarım, düzenli ürün tanıtımı, PDF formatında teslim.</li>
+                        </ul>
+                        <div class="contact-options">
+                            <a href="mailto:muhammedalikitir.tr@gmail.com?subject=Ürün Kataloğu Siparişi&body=Merhaba, Ürün Kataloğu siparişi vermek istiyorum." class="buy-btn">E-posta ile Sipariş</a>
+                            <a href="https://wa.me/905424786254?text=Merhaba,%20Ürün%20Kataloğu%20siparişi%20vermek%20istiyorum." class="buy-btn">WhatsApp ile Sipariş</a>
+                            <a href="https://www.instagram.com/zift.studio" class="buy-btn">Instagram ile İletişim</a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-about">
+                <h2 class="footer-logo">Zift Studio</h2>
+                <p>Yenilikçi çözümlerle dijital dünyada yanınızdayız.</p>
+                <div class="footer-socials">
+                    <a href="#" aria-label="Facebook" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" aria-label="Twitter" class="social-link"><i class="fab fa-twitter"></i></a>
+                    <a href="https://www.instagram.com/zift.studio" aria-label="Instagram" class="social-link"><i class="fab fa-instagram"></i></a>
+                    <a href="#" aria-label="LinkedIn" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+
+            <div class="footer-contact">
+                <h3>İletişim</h3>
+                <p><i class="fas fa-map-marker-alt"></i> Konya, Türkiye</p>
+                <p><i class="fas fa-phone-alt"></i> +90 542 478 62 54</p>
+                <p><i class="fas fa-envelope"></i> muhammedalikitir.tr@gmail.com</p>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>© 2025 Zift Studio. Tüm hakları saklıdır.</p>
+        </div>
+    </footer>
+</body>
+</html>
