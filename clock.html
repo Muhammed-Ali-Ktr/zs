@@ -1,182 +1,308 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Zift Studio Saat</title>
-  <style>
-    /* Temel ayarlar */
-    body {
-      margin: 0;
-      padding: 0;
-      font-family: "Arial", sans-serif;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      transition: background 0.5s, color 0.5s;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zift Studio - Saat</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-    /* Tema renkleri */
-    .theme-black { background: #000; color: #fff; }
-    .theme-white { background: #fff; color: #000; }
-    .theme-blue { background: #0a3d62; color: #fff; }
-    .theme-green { background: #1e5631; color: #fff; }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            transition: background 0.5s ease;
+            overflow: hidden;
+        }
 
-    .clock-container {
-      text-align: center;
-    }
+        /* Temalar */
+        body.theme-black {
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+            color: #ffffff;
+        }
 
-    /* Analog Saat */
-    .analog-clock {
-      width: 250px;
-      height: 250px;
-      border: 8px solid currentColor;
-      border-radius: 50%;
-      margin: 20px auto;
-      position: relative;
-      display: none;
-    }
+        body.theme-white {
+            background: linear-gradient(135deg, #f5f5f5 0%, #e0e0e0 100%);
+            color: #333333;
+        }
 
-    .hand {
-      width: 50%;
-      height: 3px;
-      background: currentColor;
-      position: absolute;
-      top: 50%;
-      transform-origin: 100%;
-      transform: rotate(90deg);
-      transition: all 0.05s;
-    }
+        body.theme-blue {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: #ffffff;
+        }
 
-    .hand.hour { height: 6px; width: 35%; }
-    .hand.minute { height: 4px; width: 45%; }
-    .hand.second { background: red; height: 2px; width: 50%; }
+        body.theme-green {
+            background: linear-gradient(135deg, #134e4a 0%, #14532d 100%);
+            color: #ffffff;
+        }
 
-    .center {
-      width: 14px;
-      height: 14px;
-      background: currentColor;
-      border-radius: 50%;
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-    }
+        .container {
+            text-align: center;
+            padding: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 30px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            min-width: 400px;
+        }
 
-    /* Dijital Saat */
-    .digital-clock {
-      font-size: 2rem;
-      display: none;
-    }
+        .theme-white .container {
+            background: rgba(0, 0, 0, 0.05);
+        }
 
-    .digital-clock span {
-      display: block;
-      margin: 5px;
-    }
+        .logo {
+            font-size: 28px;
+            font-weight: bold;
+            margin-bottom: 30px;
+            letter-spacing: 2px;
+        }
 
-    /* Butonlar */
-    button {
-      margin: 10px;
-      padding: 10px 20px;
-      font-size: 1rem;
-      border: none;
-      border-radius: 10px;
-      cursor: pointer;
-      background: rgba(255,255,255,0.2);
-      color: inherit;
-      transition: background 0.3s;
-    }
+        /* Dijital Saat */
+        .digital-clock {
+            font-size: 72px;
+            font-weight: 300;
+            letter-spacing: 4px;
+            margin: 40px 0;
+            font-variant-numeric: tabular-nums;
+        }
 
-    button:hover {
-      background: rgba(255,255,255,0.4);
-    }
-  </style>
+        .date {
+            font-size: 20px;
+            opacity: 0.8;
+            margin-top: 10px;
+        }
+
+        /* Analog Saat */
+        .analog-clock {
+            width: 300px;
+            height: 300px;
+            margin: 40px auto;
+            position: relative;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            border: 8px solid currentColor;
+            display: none;
+        }
+
+        .analog-clock.active {
+            display: block;
+        }
+
+        .digital-clock.active {
+            display: block;
+        }
+
+        .digital-clock:not(.active) {
+            display: none;
+        }
+
+        .clock-center {
+            width: 20px;
+            height: 20px;
+            background: currentColor;
+            border-radius: 50%;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 10;
+        }
+
+        .hand {
+            position: absolute;
+            bottom: 50%;
+            left: 50%;
+            transform-origin: bottom center;
+            background: currentColor;
+            border-radius: 10px;
+        }
+
+        .hour-hand {
+            width: 6px;
+            height: 80px;
+            margin-left: -3px;
+            opacity: 0.8;
+        }
+
+        .minute-hand {
+            width: 4px;
+            height: 110px;
+            margin-left: -2px;
+            opacity: 0.9;
+        }
+
+        .second-hand {
+            width: 2px;
+            height: 120px;
+            margin-left: -1px;
+            background: #ff4444;
+        }
+
+        /* Saat İşaretleri */
+        .clock-number {
+            position: absolute;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .clock-number:nth-child(1) { top: 10px; left: 50%; transform: translateX(-50%); }
+        .clock-number:nth-child(2) { top: 50%; right: 10px; transform: translateY(-50%); }
+        .clock-number:nth-child(3) { bottom: 10px; left: 50%; transform: translateX(-50%); }
+        .clock-number:nth-child(4) { top: 50%; left: 10px; transform: translateY(-50%); }
+
+        /* Butonlar */
+        .controls {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            margin-top: 30px;
+            flex-wrap: wrap;
+        }
+
+        button {
+            padding: 12px 24px;
+            font-size: 16px;
+            border: 2px solid currentColor;
+            background: rgba(255, 255, 255, 0.1);
+            color: inherit;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 600;
+            letter-spacing: 1px;
+        }
+
+        button:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        button:active {
+            transform: translateY(0);
+        }
+
+        .theme-white button {
+            background: rgba(0, 0, 0, 0.05);
+        }
+
+        .theme-white button:hover {
+            background: rgba(0, 0, 0, 0.1);
+        }
+
+        .mode-info {
+            margin-top: 20px;
+            font-size: 14px;
+            opacity: 0.7;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+    </style>
 </head>
 <body class="theme-black">
-  <div class="clock-container">
-    <!-- Analog Saat -->
-    <div class="analog-clock" id="analogClock">
-      <div class="hand hour" id="hourHand"></div>
-      <div class="hand minute" id="minuteHand"></div>
-      <div class="hand second" id="secondHand"></div>
-      <div class="center"></div>
+    <div class="container">
+        <div class="logo">ZIFT STUDIO</div>
+        
+        <!-- Dijital Saat -->
+        <div class="digital-clock active" id="digitalClock">
+            <div id="time">00:00:00</div>
+            <div class="date" id="date"></div>
+        </div>
+
+        <!-- Analog Saat -->
+        <div class="analog-clock" id="analogClock">
+            <div class="clock-number">12</div>
+            <div class="clock-number">3</div>
+            <div class="clock-number">6</div>
+            <div class="clock-number">9</div>
+            <div class="hand hour-hand" id="hourHand"></div>
+            <div class="hand minute-hand" id="minuteHand"></div>
+            <div class="hand second-hand" id="secondHand"></div>
+            <div class="clock-center"></div>
+        </div>
+
+        <div class="mode-info" id="modeInfo">Dijital Mod</div>
+
+        <div class="controls">
+            <button onclick="toggleMode()">Mod Değiştir</button>
+            <button onclick="changeTheme()">Tema Değiştir</button>
+        </div>
     </div>
 
-    <!-- Dijital Saat -->
-    <div class="digital-clock" id="digitalClock">
-      <span id="digitalTime"></span>
-      <span id="digitalDate"></span>
-    </div>
+    <script>
+        let currentMode = 'digital';
+        let currentThemeIndex = 0;
+        const themes = ['black', 'white', 'blue', 'green'];
+        const themeNames = {
+            'black': 'Siyah Tema',
+            'white': 'Beyaz Tema',
+            'blue': 'Mavi Tema',
+            'green': 'Yeşil Tema'
+        };
 
-    <!-- Kontrol Butonları -->
-    <button id="toggleModeBtn">Mod Değiştir (Analog/Dijital)</button>
-    <button id="toggleThemeBtn">Tema Değiştir</button>
-  </div>
+        function updateClock() {
+            const now = new Date();
+            
+            // Dijital saat güncelleme
+            const hours = String(now.getHours()).padStart(2, '0');
+            const minutes = String(now.getMinutes()).padStart(2, '0');
+            const seconds = String(now.getSeconds()).padStart(2, '0');
+            document.getElementById('time').textContent = `${hours}:${minutes}:${seconds}`;
+            
+            // Tarih güncelleme
+            const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+            document.getElementById('date').textContent = now.toLocaleDateString('tr-TR', options);
+            
+            // Analog saat güncelleme
+            const hourDeg = (now.getHours() % 12) * 30 + now.getMinutes() * 0.5;
+            const minuteDeg = now.getMinutes() * 6 + now.getSeconds() * 0.1;
+            const secondDeg = now.getSeconds() * 6;
+            
+            document.getElementById('hourHand').style.transform = `rotate(${hourDeg}deg)`;
+            document.getElementById('minuteHand').style.transform = `rotate(${minuteDeg}deg)`;
+            document.getElementById('secondHand').style.transform = `rotate(${secondDeg}deg)`;
+        }
 
-  <script>
-    const analogClock = document.getElementById("analogClock");
-    const digitalClock = document.getElementById("digitalClock");
-    const digitalTime = document.getElementById("digitalTime");
-    const digitalDate = document.getElementById("digitalDate");
-    const hourHand = document.getElementById("hourHand");
-    const minuteHand = document.getElementById("minuteHand");
-    const secondHand = document.getElementById("secondHand");
-    const toggleModeBtn = document.getElementById("toggleModeBtn");
-    const toggleThemeBtn = document.getElementById("toggleThemeBtn");
+        function toggleMode() {
+            const digitalClock = document.getElementById('digitalClock');
+            const analogClock = document.getElementById('analogClock');
+            const modeInfo = document.getElementById('modeInfo');
+            
+            if (currentMode === 'digital') {
+                currentMode = 'analog';
+                digitalClock.classList.remove('active');
+                analogClock.classList.add('active');
+                modeInfo.textContent = 'Analog Mod';
+            } else {
+                currentMode = 'digital';
+                digitalClock.classList.add('active');
+                analogClock.classList.remove('active');
+                modeInfo.textContent = 'Dijital Mod';
+            }
+        }
 
-    let isAnalog = true;
-    let themes = ["theme-black", "theme-white", "theme-blue", "theme-green"];
-    let currentTheme = 0;
+        function changeTheme() {
+            currentThemeIndex = (currentThemeIndex + 1) % themes.length;
+            const newTheme = themes[currentThemeIndex];
+            
+            // Tüm tema sınıflarını kaldır
+            themes.forEach(theme => {
+                document.body.classList.remove(`theme-${theme}`);
+            });
+            
+            // Yeni temayı ekle
+            document.body.classList.add(`theme-${newTheme}`);
+        }
 
-    // Saat güncelleme
-    function updateClock() {
-      const now = new Date();
-
-      // Analog
-      const second = now.getSeconds();
-      const minute = now.getMinutes();
-      const hour = now.getHours();
-
-      const secondDeg = ((second / 60) * 360) + 90;
-      const minuteDeg = ((minute / 60) * 360) + ((second/60)*6) + 90;
-      const hourDeg = ((hour / 12) * 360) + ((minute/60)*30) + 90;
-
-      secondHand.style.transform = `rotate(${secondDeg}deg)`;
-      minuteHand.style.transform = `rotate(${minuteDeg}deg)`;
-      hourHand.style.transform = `rotate(${hourDeg}deg)`;
-
-      // Dijital
-      digitalTime.textContent = now.toLocaleTimeString("tr-TR");
-      digitalDate.textContent = now.toLocaleDateString("tr-TR", {
-        weekday: "long",
-        year: "numeric",
-        month: "long",
-        day: "numeric"
-      });
-    }
-
-    // Mod değiştir
-    toggleModeBtn.addEventListener("click", () => {
-      isAnalog = !isAnalog;
-      analogClock.style.display = isAnalog ? "block" : "none";
-      digitalClock.style.display = isAnalog ? "none" : "block";
-    });
-
-    // Tema değiştir
-    toggleThemeBtn.addEventListener("click", () => {
-      document.body.classList.remove(themes[currentTheme]);
-      currentTheme = (currentTheme + 1) % themes.length;
-      document.body.classList.add(themes[currentTheme]);
-    });
-
-    // Başlangıçta analog açık
-    analogClock.style.display = "block";
-    digitalClock.style.display = "none";
-
-    // Her saniye saati güncelle
-    setInterval(updateClock, 1000);
-    updateClock();
-  </script>
+        // Saati her saniye güncelle
+        updateClock();
+        setInterval(updateClock, 1000);
+    </script>
 </body>
 </html>
